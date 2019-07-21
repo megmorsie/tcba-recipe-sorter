@@ -1,5 +1,17 @@
-# tcba-recipe-sorter
+# TCBA Recipe Sorter Plugin
 
+# Installation
+Requires WP Recipe Maker plugin to be installed and active. Otherwise, shortcode will return an error message.
+To install, download a zipped file of this repository and upload to WordPress.
+
+# Usage
+To display the filtering options and search results, put this shortcode on a page/post:
+`[recipe-sorter]`
+
+# Troubleshooting
+FIXM
+
+# FIXME (Cleveland GiveCamp Project)
 Remaining Work in `cgc-testing-template.php`
 1. refactor as much as possible
 2. sanitize any fields needing it
