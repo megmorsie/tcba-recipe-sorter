@@ -1,7 +1,8 @@
 <?php
-// Testing Page
 // WP_Query for Recipe Post Type
 // FIXME: Wrap in a function_exists('activate_wp_recipe_maker_premium') conditional...
+// FIXME: Change to return values... Put in shortcode...
+
 if (isset($_GET['submit'])) {
 	$search_term = get_query_var('search');
 	$course_search = esc_html($_GET['wprm_course']);

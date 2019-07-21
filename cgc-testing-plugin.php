@@ -1,8 +1,8 @@
 <?php
 /*
- * Plugin Name: TCBA Testing Plugin
+ * Plugin Name: TCBA Recipe Sorter
  * Plugin URI: https://tcbadev.wpengine.com
- * Description: Sets up testing template for proof of concept for Receipts sorting/filtering functionality.
+ * Description: Sets up testing template for proof of concept for Receipts sorting/filtering functionality. (FIXME)
  * Version: 1.0
  * Author: Cle GiveCamp
  * Author URI: http://clevelandgivecamp.org
