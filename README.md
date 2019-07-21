@@ -10,7 +10,7 @@ Usage
 To display the filtering options and search results, put this shortcode on a page/post:
 `[recipe-sorter]`
 
-Front-End Usage
+Front-End Display
 ------
 ![](recipe-filter-pea.gif)
 
