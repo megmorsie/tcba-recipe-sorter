@@ -132,7 +132,7 @@ function tcba_recipe_sorter() {
 		while ( $recipes->have_posts() ) {
 			$recipes->the_post();
 
-			$return .= '<li class="wpupg-item wpupg-page-0 wpupg-type-wprm_recipe wpupg-container" style="margin: 5px; width: 100%; max-width: 200px; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; vertical-align: inherit; list-style: none;">
+			$return .= '<a href="'.get_permalink().'"><li class="wpupg-item wpupg-page-0 wpupg-type-wprm_recipe wpupg-container" style="margin: 5px; width: 100%; max-width: 200px; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; vertical-align: inherit; list-style: none;">
 				<div class="wpupg-rows" style="position:static;text-align:inherit;vertical-align:inherit;">
 					<div class="wpupg-rows-row" style="height:auto;">
 						<div>
@@ -140,10 +140,10 @@ function tcba_recipe_sorter() {
 						</div>
 					</div>
 					<div class="wpupg-rows-row" style="height:auto;">
-						<a href="'.get_permalink().'" class="wpupg-post-title" style="margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:5px;position:static;text-align:inherit;vertical-align:inherit;font-weight:bold;">'.get_the_title().'</a>
+						<span class="wpupg-post-title" style="margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:5px;position:static;text-align:inherit;vertical-align:inherit;font-weight:bold;">'.get_the_title().'</span>
 					</div>
 				</div>
-			</li>';
+			</li></a>';
 		}
 		$return .= '</ul>';
 	} else {
