@@ -135,6 +135,19 @@ function tcba_recipe_sorter() {
 			$return .= '<li class="cat-item cat-item-'.get_the_ID().'">';
 			$return .= '<a class="recipe-listing" href="'.get_permalink().'">'.get_the_title().'</a>';
 			$return .= '</li>';
+
+			$return .= '<li class="wpupg-item wpupg-page-0 wpupg-type-wprm_recipe wpupg-container" style="margin: 5px; width: 100%; max-width: 200px; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; vertical-align: inherit; list-style: none;">
+				<div class="wpupg-rows" style="position:static;text-align:inherit;vertical-align:inherit;">
+					<div class="wpupg-rows-row" style="height:auto;">
+						<div>
+							<img src="' . get_the_post_thumbnail_url() . '" alt="" class="wpupg-post-image" style="width:200px;height:100%;position:static;text-align:inherit;vertical-align:inherit;">
+						</div>
+					</div>
+					<div class="wpupg-rows-row" style="height:auto;">
+						<a href="'.get_permalink().'" class="wpupg-post-title" style="margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:5px;position:static;text-align:inherit;vertical-align:inherit;font-weight:bold;">'.get_the_title().'</a>
+					</div>
+				</div>
+			</li>';
 		}
 		$return .= '</ul>';
 	} else {
