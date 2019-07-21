@@ -1,8 +1,8 @@
 <?php
 /*
  * Plugin Name: TCBA Recipe Sorter
- * Plugin URI: https://tcbadev.wpengine.com
- * Description: Sets up testing template for proof of concept for Receipts sorting/filtering functionality. (FIXME)
+ * Plugin URI: https://thecuttingboardacademy.org
+ * Description: Sets up a shortcode for the recipe sorting/filtering functionality. 
  * Version: 1.0
  * Author: Cle GiveCamp
  * Author URI: http://clevelandgivecamp.org
