@@ -49,6 +49,7 @@ if (isset($_GET['submit'])) {
 	if ( $course_search != '' ) {
 		// Append the args with tax info where applicable.
 		$args['tax_query'] = [
+			'relation'	   => 'OR',
 			[
 				'taxonomy' => 'wprm_course',
 				'field'    => 'slug',
@@ -59,13 +60,26 @@ if (isset($_GET['submit'])) {
 
 	if ( $dietary_search != '' ) {
 		// Append the args with tax info where applicable.
-		$args['tax_query'] = [
-			[
-				'taxonomy' => 'wprm_diet_and_health',
-				'field'    => 'slug',
-				'terms'    => $dietary_search,
-			]
-		];
+		if ( is_array($args['tax_query']) ) {
+			$new_args['tax_query'] = [
+				'relation'	   => 'OR',
+				[
+					'taxonomy' => 'wprm_diet_and_health',
+					'field'    => 'slug',
+					'terms'    => $dietary_search,
+				]
+			];
+			array_push($args['tax_query'], $new_args['tax_query']);
+		} else {
+			$args['tax_query'] = [
+				'relation'	   => 'OR',
+				[
+					'taxonomy' => 'wprm_diet_and_health',
+					'field'    => 'slug',
+					'terms'    => $dietary_search,
+				]
+			];
+		}
 	}
 
 	$the_query = new WP_Query($args);
