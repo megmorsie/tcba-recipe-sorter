@@ -2,7 +2,7 @@
 /*
  * Plugin Name: TCBA Recipe Sorter
  * Plugin URI: https://thecuttingboardacademy.org
- * Description: Sets up a shortcode for the recipe sorting/filtering functionality. 
+ * Description: Sets up a shortcode for the recipe sorting/filtering functionality. Requires WP Recipe Maker plugin to work.
  * Version: 1.0
  * Author: Cle GiveCamp
  * Author URI: http://clevelandgivecamp.org
