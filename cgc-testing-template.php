@@ -29,7 +29,7 @@ if (isset($_GET['submit'])) {
 	echo "<label class='screen-reader-text' for='diet_and_health'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
 	foreach ($wprm_diet_and_health_terms as $wprm_diet_and_health) {
 		$wprm_diet_and_health_slug = strtolower(esc_html($wprm_diet_and_health->name));
-		echo "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($diet_and_health_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
+		echo "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($dietary_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
 	}
 	echo "</select>"; 	
 
