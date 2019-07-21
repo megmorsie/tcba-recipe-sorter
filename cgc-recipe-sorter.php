@@ -31,7 +31,7 @@ function tcba_recipe_sorter() {
 
 			// Get Taxonomies
 			$wprm_courses = get_terms([ 'taxonomy' => 'wprm_course' ]);
-			$return .= "<label class='screen-reader-text' for='course'>Meal Type/Course: </label><select class='form-control' name='wprm_course' id='course'><option value=''>-- Any Meal Type/Course --</option>";
+			$return .= "<label for='course'>Meal Type/Course: </label><select class='form-control' name='wprm_course' id='course'><option value=''>-- Any Meal Type/Course --</option>";
 			foreach ($wprm_courses as $wprm_course) {
 				$wprm_course_slug = str_replace(' ', '-', strtolower(esc_html($wprm_course->name)));
 				$return .= "<option value='" . str_replace(' ', '-', $wprm_course_slug) . "'" . (($course_search == $wprm_course_slug) ? 'selected' : '') . ">" . esc_html($wprm_course->name) ."</option>";
@@ -39,7 +39,7 @@ function tcba_recipe_sorter() {
 			$return .= "</select>"; 
 
 			$wprm_diet_and_health_terms = get_terms([ 'taxonomy' => 'wprm_diet_and_health' ]);
-			$return .= "<label class='screen-reader-text' for='diet_and_health'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
+			$return .= "<label for='diet_and_health'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
 			foreach ($wprm_diet_and_health_terms as $wprm_diet_and_health) {
 				$wprm_diet_and_health_slug = str_replace(' ', '-', strtolower(esc_html($wprm_diet_and_health->name)));
 				$return .= "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($dietary_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
