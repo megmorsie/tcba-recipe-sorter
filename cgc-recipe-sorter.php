@@ -24,12 +24,12 @@ function tcba_recipe_sorter() {
 		}
 
 		$return = '<form action="" method="GET" class="recipe-sorter">
-			<div class="form-group"><label for="search">Ingredient Search:</label></div>
+			<div class="form-group"><label for="search" class="screen-reader-text">Ingredient Search:</label></div>
 			<div class="form-group"><input type="text" name="search" value="' . $search_term . '"></div>';
 
 			// Get Taxonomies
 			$wprm_courses = get_terms([ 'taxonomy' => 'wprm_course' ]);
-			$return .= "<div class='form-group'><label for='course'>Meal Type/Course: </label><select class='form-control' name='wprm_course' id='course'><option value=''>-- Any Meal Type/Course --</option>";
+			$return .= "<div class='form-group'><label for='course' class='screen-reader-text'>Meal Type/Course: </label><select class='form-control' name='wprm_course' id='course'><option value=''>-- Any Meal Type/Course --</option>";
 			foreach ($wprm_courses as $wprm_course) {
 				$wprm_course_slug = str_replace(' ', '-', strtolower(esc_html($wprm_course->name)));
 				$return .= "<option value='" . str_replace(' ', '-', $wprm_course_slug) . "'" . (($course_search == $wprm_course_slug) ? 'selected' : '') . ">" . esc_html($wprm_course->name) ."</option>";
@@ -37,7 +37,7 @@ function tcba_recipe_sorter() {
 			$return .= "</select></div>"; 
 
 			$wprm_diet_and_health_terms = get_terms([ 'taxonomy' => 'wprm_diet_and_health' ]);
-			$return .= "<div class='form-group'><label for='diet_and_health'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
+			$return .= "<div class='form-group'><label for='diet_and_health' class='screen-reader-text'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
 			foreach ($wprm_diet_and_health_terms as $wprm_diet_and_health) {
 				$wprm_diet_and_health_slug = str_replace(' ', '-', strtolower(esc_html($wprm_diet_and_health->name)));
 				$return .= "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($dietary_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
