@@ -23,7 +23,7 @@ function tcba_recipe_sorter() {
 			$search_term = $course_search = '';
 		}
 
-		$return = '<form action="" method="GET">
+		$return = '<form action="" method="GET" class="recipe-sorter">
 			<label for="search">
 				Ingredient Search:
 				<input type="text" name="search" value="' . $search_term . '">
@@ -45,7 +45,7 @@ function tcba_recipe_sorter() {
 				$return .= "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($dietary_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
 			}
 			$return .= '</select>
-				<input type="submit" name="submit" value="Search">
+				<input type="submit" name="submit" value="Search" class="fusion-button button-default fusion-button-default-size button">
 			</form>';
 
 		if (isset($_GET['submit'])) {
