@@ -15,17 +15,14 @@ if (isset($_GET['submit'])) {
 		<input type="text" name="search" value="<?php echo $search_term; ?>">
 	</label>
 	<?php
-	// Get Other Taxonomies
+	// Get Taxonomies
 	$wprm_courses = get_terms([ 'taxonomy' => 'wprm_course' ]);
 	echo "<label class='screen-reader-text' for='course'>Meal Type/Course: </label><select class='form-control' name='wprm_course' id='course'><option value=''>-- Any Meal Type/Course --</option>";
-	
 	foreach ($wprm_courses as $wprm_course) {
 		$wprm_course_slug = strtolower(esc_html($wprm_course->name));
 		echo "<option value='" . str_replace(' ', '-', $wprm_course_slug) . "'" . (($course_search == $wprm_course_slug) ? 'selected' : '') . ">" . esc_html($wprm_course->name) ."</option>";
 	}
 	echo "</select>"; 
-
-	// 
 
 	?>
 	<input type="submit" name="submit" value="Search">
