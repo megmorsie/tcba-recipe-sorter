@@ -35,7 +35,7 @@ Remaining Work in `cgc-testing-template.php`
 1. Refactor as much as possible.
 2. Sanitize any fields needing it.
 3. Duplicate taxonomy functionality for other ones...
-Available taxonomies that were left out of scope: `wprm_cuisine`, `wprm_ingredient`, `wprm_method`*, `wprm_style`*, `wprm_type`*
+Available taxonomies that were left out of scope: `wprm_cuisine`, `wprm_ingredient`, `wprm_method`\*, `wprm_style`\*, `wprm_type`\*
 Taxonomies with asterisks were added specifically for TCBA.
 4. Install Relevanssi & work functionality into search so that meta fields are included (`wprm_ingredients`).
 
