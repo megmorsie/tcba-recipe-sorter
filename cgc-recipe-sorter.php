@@ -132,10 +132,6 @@ function tcba_recipe_sorter() {
 		while ( $recipes->have_posts() ) {
 			$recipes->the_post();
 
-			$return .= '<li class="cat-item cat-item-'.get_the_ID().'">';
-			$return .= '<a class="recipe-listing" href="'.get_permalink().'">'.get_the_title().'</a>';
-			$return .= '</li>';
-
 			$return .= '<li class="wpupg-item wpupg-page-0 wpupg-type-wprm_recipe wpupg-container" style="margin: 5px; width: 100%; max-width: 200px; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; vertical-align: inherit; list-style: none;">
 				<div class="wpupg-rows" style="position:static;text-align:inherit;vertical-align:inherit;">
 					<div class="wpupg-rows-row" style="height:auto;">
