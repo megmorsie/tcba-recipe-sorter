@@ -114,7 +114,7 @@ function tcba_recipe_sorter() {
 					</div>
 				</li></a>';
 			}
-			$return .= '</ul>';
+			$return .= '</ul><div style="clear:both;"></div>';
 			/* Restore original Post Data */
 			wp_reset_postdata();
 		} else {
