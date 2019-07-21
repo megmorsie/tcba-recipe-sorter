@@ -2,7 +2,7 @@
 
 Installation
 ------
-1. Requires **WP Recipe Maker** plugin to be installed and active. Otherwise, shortcode will return an error message.
+1. Requires **WP Recipe Maker** plugin to be installed and active. Otherwise, shortcode will return an error message (see Troubleshooting/Known Issues section below for details).
 2. To install TCBA Recipe Sorter, download a **zipped file** of this repository and **upload to WordPress**.
 
 Usage
