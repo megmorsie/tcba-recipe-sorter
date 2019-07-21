@@ -94,7 +94,10 @@ function tcba_recipe_sorter() {
 		$the_query = new WP_Query($args);
 		// The Loop
 		if ($the_query->have_posts()) {
-			$return .= '<h2>Recipes with "' . $search_term . '"</h2>';
+			$return .= '<h2>Search Results</h2>';
+			if ($search_term != '' ) {
+				$return .= '<p>Searching for "' . $search_term . '"</p>';
+			}
 			if ($course_search != '' ) { 
 				$return .= '<p>Meal Type: ' . $course_search . '</p>';
 			}
