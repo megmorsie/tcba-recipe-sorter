@@ -5,6 +5,7 @@
 if (isset($_GET['submit'])) {
 	$search_term = get_query_var('search');
 	$course_search = esc_html($_GET['wprm_course']);
+	$dietary_search = esc_html($_GET['wprm_diet_and_health']);
 } else {
 	$search_term = $course_search = '';
 } ?>
@@ -23,6 +24,14 @@ if (isset($_GET['submit'])) {
 		echo "<option value='" . str_replace(' ', '-', $wprm_course_slug) . "'" . (($course_search == $wprm_course_slug) ? 'selected' : '') . ">" . esc_html($wprm_course->name) ."</option>";
 	}
 	echo "</select>"; 
+
+	$wprm_diet_and_health_terms = get_terms([ 'taxonomy' => 'wprm_diet_and_health' ]);
+	echo "<label class='screen-reader-text' for='diet_and_health'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
+	foreach ($wprm_diet_and_health_terms as $wprm_diet_and_health) {
+		$wprm_diet_and_health_slug = strtolower(esc_html($wprm_diet_and_health->name));
+		echo "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($diet_and_health_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
+	}
+	echo "</select>"; 	
 
 	?>
 	<input type="submit" name="submit" value="Search">
@@ -44,6 +53,17 @@ if (isset($_GET['submit'])) {
 				'taxonomy' => 'wprm_course',
 				'field'    => 'slug',
 				'terms'    => $course_search,
+			]
+		];
+	}
+
+	if ( $dietary_search != '' ) {
+		// Append the args with tax info where applicable.
+		$args['tax_query'] = [
+			[
+				'taxonomy' => 'wprm_diet_and_health',
+				'field'    => 'slug',
+				'terms'    => $dietary_search,
 			]
 		];
 	}
