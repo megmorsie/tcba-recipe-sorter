@@ -102,7 +102,7 @@ function tcba_recipe_sorter() {
 				if ($course_search != '' ) { 
 					$return .= '<p>Meal Type: ' . $course_search . '</p>';
 				}
-				$return .= '<ul class="recipe-list">';
+				$return .= '<ul class="recipe-list" style="display: inline-block;margin-bottom: 20px;border-bottom: 2px solid #f0f0f0;width: 100%;"">';
 				while ($the_query->have_posts()) {
 					$the_query->the_post();
 					$return .= '<a href="'.get_permalink().'"><li class="wpupg-item wpupg-page-0 wpupg-type-wprm_recipe wpupg-container" style="margin: 5px; width: 100%; max-width: 200px; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; vertical-align: inherit; list-style: none;">
