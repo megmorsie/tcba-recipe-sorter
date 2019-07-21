@@ -25,7 +25,7 @@ function tcba_recipe_sorter() {
 	$return = '<form action="" method="GET">
 		<label for="search">
 			Ingredient Search:
-			<input type="text" name="search" value="<?php echo $search_term; ?>">
+			<input type="text" name="search" value="' . $search_term . '">
 		</label>';
 
 		// Get Taxonomies
