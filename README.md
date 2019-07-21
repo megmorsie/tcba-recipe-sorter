@@ -39,6 +39,10 @@ Available taxonomies that were left out of scope: `wprm_cuisine`, `wprm_ingredie
 Taxonomies with asterisks were added specifically for TCBA.
 4. Install Relevanssi & work functionality into search so that meta fields are included (`wprm_ingredient`).
 
-Stuff I Need
+# Contributing
+This project was initially created during Cleveland GiveCamp 2019 for a non-profit organization. Contributions are welcome, anything from bug fixes to expanded functionality. Feel free to fork, change, use for your own projects.
+
+At the end of this weekend, these are the areas that the plugin could use the most help:
 1. Help refactoring - I'm repeating myself a lot.
 2. Help checking for missing sanitization/doing it better.
+3. Assistance with the FIXME list above.
