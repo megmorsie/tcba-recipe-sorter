@@ -9,36 +9,33 @@ if (isset($_GET['submit'])) {
 	$dietary_search = esc_html($_GET['wprm_diet_and_health']);
 } else {
 	$search_term = $course_search = '';
-} ?>
+}
 
-<form action="" method="GET">
+$return = '<form action="" method="GET">
 	<label for="search">
 		Ingredient Search:
 		<input type="text" name="search" value="<?php echo $search_term; ?>">
-	</label>
-	<?php
+	</label>';
+
 	// Get Taxonomies
 	$wprm_courses = get_terms([ 'taxonomy' => 'wprm_course' ]);
-	echo "<label class='screen-reader-text' for='course'>Meal Type/Course: </label><select class='form-control' name='wprm_course' id='course'><option value=''>-- Any Meal Type/Course --</option>";
+	$return .= "<label class='screen-reader-text' for='course'>Meal Type/Course: </label><select class='form-control' name='wprm_course' id='course'><option value=''>-- Any Meal Type/Course --</option>";
 	foreach ($wprm_courses as $wprm_course) {
 		$wprm_course_slug = str_replace(' ', '-', strtolower(esc_html($wprm_course->name)));
-		echo "<option value='" . str_replace(' ', '-', $wprm_course_slug) . "'" . (($course_search == $wprm_course_slug) ? 'selected' : '') . ">" . esc_html($wprm_course->name) ."</option>";
+		$return .= "<option value='" . str_replace(' ', '-', $wprm_course_slug) . "'" . (($course_search == $wprm_course_slug) ? 'selected' : '') . ">" . esc_html($wprm_course->name) ."</option>";
 	}
-	echo "</select>"; 
+	$return .= "</select>"; 
 
 	$wprm_diet_and_health_terms = get_terms([ 'taxonomy' => 'wprm_diet_and_health' ]);
-	echo "<label class='screen-reader-text' for='diet_and_health'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
+	$return .= "<label class='screen-reader-text' for='diet_and_health'>Dietary/Health: </label><select class='form-control' name='wprm_diet_and_health' id='diet_and_health'><option value=''>-- Any --</option>";
 	foreach ($wprm_diet_and_health_terms as $wprm_diet_and_health) {
 		$wprm_diet_and_health_slug = str_replace(' ', '-', strtolower(esc_html($wprm_diet_and_health->name)));
-		echo "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($dietary_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
+		$return .= "<option value='" . str_replace(' ', '-', $wprm_diet_and_health_slug) . "'" . (($dietary_search == $wprm_diet_and_health_slug) ? 'selected' : '') . ">" . esc_html($wprm_diet_and_health->name) ."</option>";
 	}
-	echo "</select>"; 	
+	$return .= '</select>
+		<input type="submit" name="submit" value="Search">
+	</form>';
 
-	?>
-	<input type="submit" name="submit" value="Search">
-</form>
-
-<?php
 if (isset($_GET['submit'])) {
 	$args = [
 		'post_type' => 'wprm_recipe',
@@ -86,30 +83,27 @@ if (isset($_GET['submit'])) {
 	$the_query = new WP_Query($args);
 	// The Loop
 	if ($the_query->have_posts()) {
-		?>
-		<h2>Recipes with "<?php echo $search_term; ?>"</h2>
-		<?php if ($course_search != '' ) { ?>
-			<p>Meal Type: <?php echo $course_search; ?></p>
-		<?php } ?>
-		<?php
-		echo '<ul class="recipe-list">';
+		$return .= '<h2>Recipes with "' . $search_term . '"</h2>';
+		if ($course_search != '' ) { 
+			$return .= '<p>Meal Type: ' . $course_search . '</p>';
+		}
+		$return .= '<ul class="recipe-list">';
 		while ($the_query->have_posts()) {
 			$the_query->the_post();
-			echo '<li class="cat-item cat-item-'.get_the_ID().'">';
-			echo '<a class="recipe-listing" href="'.get_permalink().'">'.get_the_title().'</a>';
-			echo '</li>';
+			$return .= '<li class="cat-item cat-item-'.get_the_ID().'">
+				<a class="recipe-listing" href="'.get_permalink().'">'.get_the_title().'</a>
+			</li>';
 		}
-		echo '</ul>';
+		$return .= '</ul>';
 		/* Restore original Post Data */
 		wp_reset_postdata();
 	} else {
-		echo '<p>We do not currently have any recipes matching the criteria. Please adjust the search criteria above.</p>';
+		$return .= '<p>We do not currently have any recipes matching the criteria. Please adjust the search criteria above.</p>';
 	}
-} ?>
+} 
 
-<hr />
+$return .= '<hr />';
 
-<?php
 $args = array (
 	'post_type'             => array( 'wprm_recipe' ),
 	// 'post_status'        => array( 'publish' ),
@@ -122,18 +116,18 @@ $args = array (
 $recipes = new WP_Query( $args );
 
 if ( $recipes->have_posts() ) {
-	echo '<h2>All Recipes</h2>';
-	echo '<ul class="recipe-list">';
+	$return .= '<h2>All Recipes</h2>';
+	$return .= '<ul class="recipe-list">';
 	while ( $recipes->have_posts() ) {
 		$recipes->the_post();
 
-		echo '<li class="cat-item cat-item-'.get_the_ID().'">';
-		echo '<a class="recipe-listing" href="'.get_permalink().'">'.get_the_title().'</a>';
-		echo '</li>';
+		$return .= '<li class="cat-item cat-item-'.get_the_ID().'">';
+		$return .= '<a class="recipe-listing" href="'.get_permalink().'">'.get_the_title().'</a>';
+		$return .= '</li>';
 	}
-	echo '</ul>';
+	$return .= '</ul>';
 } else {
-	echo 'No Recipes Found';
+	$return .= 'No Recipes Found';
 }
 
 // Restore original Post Data
