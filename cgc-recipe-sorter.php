@@ -120,8 +120,8 @@ function tcba_recipe_sorter() {
 		// 'post_status'        => array( 'publish' ),
 		'nopaging'              => true,
 		'order'                 => 'ASC',
-		'orderby'               => 'menu_order',
-		'posts_per_page'		=> 5
+		'orderby'               => 'title',
+		'posts_per_page'		=> -1
 	);
 
 	$recipes = new WP_Query( $args );
