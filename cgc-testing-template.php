@@ -49,7 +49,7 @@ if (isset($_GET['submit'])) {
 	if ( $course_search != '' ) {
 		// Append the args with tax info where applicable.
 		$args['tax_query'] = [
-			'relation'	   => 'OR',
+			'relation'	   => 'AND',
 			[
 				'taxonomy' => 'wprm_course',
 				'field'    => 'slug',
@@ -62,7 +62,7 @@ if (isset($_GET['submit'])) {
 		// Append the args with tax info where applicable.
 		if ( is_array($args['tax_query']) ) {
 			$new_args['tax_query'] = [
-				'relation'	   => 'OR',
+				'relation'	   => 'AND',
 				[
 					'taxonomy' => 'wprm_diet_and_health',
 					'field'    => 'slug',
@@ -72,7 +72,7 @@ if (isset($_GET['submit'])) {
 			array_push($args['tax_query'], $new_args['tax_query']);
 		} else {
 			$args['tax_query'] = [
-				'relation'	   => 'OR',
+				'relation'	   => 'AND',
 				[
 					'taxonomy' => 'wprm_diet_and_health',
 					'field'    => 'slug',
