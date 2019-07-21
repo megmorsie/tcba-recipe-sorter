@@ -125,46 +125,6 @@ function tcba_recipe_sorter() {
 		}
 	} 
 
-	$return .= '<hr />';
-
-	$args = array (
-		'post_type'             => array( 'wprm_recipe' ),
-		// 'post_status'        => array( 'publish' ),
-		'nopaging'              => true,
-		'order'                 => 'ASC',
-		'orderby'               => 'title',
-		'posts_per_page'		=> -1
-	);
-
-	$recipes = new WP_Query( $args );
-
-	if ( $recipes->have_posts() ) {
-		$return .= '<h2>All Recipes</h2>';
-		$return .= '<ul class="recipe-list">';
-		while ( $recipes->have_posts() ) {
-			$recipes->the_post();
-
-			$return .= '<a href="'.get_permalink().'"><li class="wpupg-item wpupg-page-0 wpupg-type-wprm_recipe wpupg-container" style="margin: 5px; width: 100%; max-width: 200px; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; vertical-align: inherit; list-style: none;">
-				<div class="wpupg-rows" style="position:static;text-align:inherit;vertical-align:inherit;">
-					<div class="wpupg-rows-row" style="height:auto;">
-						<div>
-							<img src="' . get_the_post_thumbnail_url() . '" alt="" class="wpupg-post-image" style="width:200px;height:100%;position:static;text-align:inherit;vertical-align:inherit;">
-						</div>
-					</div>
-					<div class="wpupg-rows-row" style="height:auto;">
-						<span class="wpupg-post-title" style="margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:5px;position:static;text-align:inherit;vertical-align:inherit;font-weight:bold;">'.get_the_title().'</span>
-					</div>
-				</div>
-			</li></a>';
-		}
-		$return .= '</ul>';
-	} else {
-		$return .= 'No Recipes Found';
-	}
-
-	// Restore original Post Data
-	wp_reset_postdata();
-
 	return $return;
 	
 } ?>
