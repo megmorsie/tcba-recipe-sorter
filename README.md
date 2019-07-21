@@ -9,7 +9,7 @@ Remaining Work in `cgc-testing-template.php`
 
 Remaining Work in `cgc-testing-plugin.php`
 1. move `cgc-testing-template.php` functionality into shortcode instead of a page template
-  - remove existing page template functionality & consolidate files
+(remove existing page template functionality & consolidate files)
 
 Stuff I Need
 1. Help refactoring - I'm repeating myself a lot.
